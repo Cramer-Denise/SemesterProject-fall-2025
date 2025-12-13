@@ -102,6 +102,18 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .logo-mark {
@@ -115,11 +127,6 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.logo-text {
-  font-size: 14px;
-  font-weight: 500;
 }
 
 /* Nav */
@@ -739,5 +746,134 @@ a:focus-visible {
 @media (max-width: 600px) {
   .kids-plan-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ====== MOBILE ADJUSTMENTS ====== */
+
+/* Base */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Primary mobile breakpoint */
+@media (max-width: 768px) {
+  /* Container padding */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Sections, tight but roomy */
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* NAV*/
+  .main-nav ul {
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* HERO, full size overlay */
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-overlay,
+  .hero-overlay-visit,
+  .hero-overlay-kids {
+    width: 100%;
+    min-height: auto;
+    padding: 2rem 1.5rem;
+    margin: 0; 
+  }
+
+  /* Buttons: full-width on mobile */
+  .btn,
+  .btn-fixed,
+  .btn-wide {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-fixed {
+    height: 48px;
+  }
+
+  /* Homepage grids */
+  .exhibitions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Audience stack */
+  .audience-block {
+    grid-template-columns: 1fr;
+  }
+
+  /* Exhibitions page stacked cards (image + text) */
+  .expo-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .expo-media img {
+    height: 220px;
+  }
+
+  /* Visit page */
+  .visit-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kids page */
+  .kids-activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kids-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-card img {
+    height: 220px;
+  }
+
+  /* Event card text smaller */
+  .event-card p {
+    font-size: 18px;
+  }
+}
+
+/* Smallest screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .logo-text {
+    display: none; 
   }
 }

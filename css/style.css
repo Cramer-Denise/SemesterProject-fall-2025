@@ -1,0 +1,743 @@
+/* ==== RESET-ish ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2E2E2E;
+  background-color: #FFFFFF;
+  line-height: 1.6;
+}
+
+/* ==== DESIGN TOKENS ==== */
+:root {
+  --color-primary: #3E6DFF;
+  --color-secondary: #A68EFF;
+  --color-bg: #FFFFFF;
+  --color-text: #2E2E2E;
+  --color-card: #F6F3FB;
+  --color-cta: #4CC9A1;
+
+  --radius-card: 16px;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+}
+
+/* ==== GLOBAL LAYOUT ==== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 16px;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: "Poppins", system-ui, -apple-system, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 0;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ==== HEADER & NAV ==== */
+.site-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 12px;
+  gap: 16px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Nav */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.nav-link {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.nav-link:hover {
+  background-color: rgba(62, 109, 255, 0.08);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* ==== FOOTER ==== */
+.site-footer {
+  margin-top: var(--space-xxl);
+  background-color: var(--color-card);
+  padding-block: var(--space-xl);
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.footer-heading {
+  font-size: 16px;
+  color: var(--color-primary);
+  margin-bottom: var(--space-s);
+}
+
+.footer-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: var(--space-l);
+  font-size: 13px;
+}
+
+/* Footer: make 3 columns on wider screens */
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-cta);
+  color: var(--color-text);
+}
+
+ .btn-primary:hover, .btn-primary:focus-visible {
+  background-color: #3ca884;
+  color: var(--color-text);
+  transform: translate(-1px);
+  box-shadow: 0 6px 15px rgba(60, 168, 132, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--color-cta);
+  color: var(--color-text);
+  border-color: var(--color-cta);
+}
+
+.btn-secondary:hover, .btn-secondary:focus-visible {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.btn-wide {
+  width: 100%;
+  max-width: 310px;
+}
+
+.btn-small {
+  width: auto;            
+  min-width: 140px;       
+  height: 40px;           
+  padding: 0 1.25rem;
+  font-size: 0.9rem;     
+}
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.hero-home {
+    background-image: url(../images/hero-home.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    background-color: #FFFFFF;
+    max-width: 728px;
+    padding: 3rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-overlay-40 {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-title {
+    font-size: 3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    font-size: 1.05rem;
+    max-width: 32rem;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.exhibitions {
+    background-color: #fdfcff;
+}
+
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.exhibitions-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+    background-color: var(--color-card);
+    border-radius: 18px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.exhibition-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.exhibition-card p {
+    font-size: 0.95rem;
+}
+
+.audience-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.audience-image img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.audience-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.audience-content p + p {
+    margin-top: 0.75rem;
+}
+
+.audience-content .btn {
+    margin-top: 1.5rem;
+}
+
+.visit-summary {
+    background-color: #faf8ff;
+}
+
+.visit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    border-radius: 18px;
+    padding: 1.25rem;
+    border: 2px solid var(--color-primary);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-card-image {
+    width: 100%;
+    margin-top: 0.75rem;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 420px;
+}
+
+.hero-overlay {
+    max-width: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+}
+
+.hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.exhibitions-grid, .visit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.audience-block {
+    grid-template-columns: minmax(0, 1fr);
+}
+}
+
+@media (max-width: 600px) {
+    .exhibitions-grid, .visit-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+.section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 1.7rem;
+}
+}
+
+/*==== EXHIBITIONS HERO SECTION ====*/
+.hero-exhibitions {
+    background-image: url(../images/hero-exhibitions.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* right side overlay */
+.hero-overlay-right {
+    margin-left: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay-40 {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-text-block p {
+    margin: 0 0 0.75rem;
+}
+
+.btn-fixed {
+    width: 250px;
+    height: 50px;
+    padding: 0;
+}
+
+/*====Stacked cards exhibition section====*/
+.expo-stack .container {
+    display: grid;
+    gap: 2rem;
+}
+
+.expo-card {
+    background: var(--color-card);
+    border-radius: 18px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.expo-media img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
+
+.expo-title {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.expo-content p + p {
+    margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .expo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .expo-media img {
+        height: 240px;
+    }
+
+    .hero-overlay-right {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* ===== VISIT HERO ===== */
+.hero-visit {
+  min-height: 400px;
+  background-image: url("../images/hero-visit.jpg"); /* change to your actual hero */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end; /* overlay on RIGHT */
+}
+
+.hero-overlay-visit {
+  width: 728px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* centered title inside overlay */
+  text-align: center;
+  padding: 2rem 3rem;
+}
+
+/* 40% opacity overlay */
+.hero-overlay-40 {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== VISIT TOP GRID ===== */
+.visit-top-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* shared card title style for visit page */
+.card-title {
+  color: var(--color-primary);
+  font-size: 1.6rem; /* H2-ish */
+  margin-bottom: 0.75rem;
+}
+
+/* ===== LOCATION CARD (FULL WIDTH) ===== */
+.location-card {
+  background: var(--color-card);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.location-map img {
+  width: 400px;
+  height: 200px;
+  border-radius: 14px;
+  display: block;
+}
+
+/* ===== ACCESSIBILITY + RIGHT STACK ===== */
+.visit-bottom-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.accessibility-card {
+  background: var(--color-card);
+  padding: 1.5rem;
+  border-radius: 18px;
+}
+
+.accessibility-image {
+  width: 100%;
+  height: 150px;         
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-top: 2rem;
+}
+
+.stacked-side {
+  display: grid;
+  gap: 2rem;
+}
+
+.visit-top, .visit-location, .visit-bottom {
+  margin-bottom: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-visit {
+    justify-content: flex-start;
+  }
+
+  .hero-overlay-visit {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .visit-top-grid {
+    grid-template-columns: 2fr;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-bottom-grid {
+    grid-template-columns: 2fr;
+  }
+}
+
+/* ===== KIDS PAGE HERO ===== */
+.hero-kids {
+  min-height: 500px;
+  background-image: url("../images/hero-kids.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.hero-overlay-kids {
+  width: 728px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  padding: 2.5rem 3rem;
+}
+
+.kids-hero-tagline {
+  font-size: 20px;
+  margin: 1rem 0 2rem;
+}
+
+/* ===== ACTIVITIES (3 cards) ===== */
+.kids-activities-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.activity-card {
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--color-card);
+  text-align: center;
+}
+
+.activity-title {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.activity-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* ===== UPCOMING EVENTS ===== */
+.events-stack {
+  display: grid;
+  gap: 2rem;
+}
+
+.event-card {
+  padding: 2rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 2px solid var(--color-primary);
+}
+
+.event-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.event-card p {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* ===== PLAN YOUR VISIT (4 cards) ===== */
+.kids-plan-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.plan-card {
+  padding: 2rem;
+  border-radius: 18px;
+  background: var(--color-card);
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-content: start;
+}
+
+.plan-card h3 {
+  color: var(--color-primary);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-overlay-kids {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .kids-activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kids-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-card p {
+    font-size: 18px; 
+  }
+}
+
+@media (max-width: 600px) {
+  .kids-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}

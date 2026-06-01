@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the Semester Project for FEU-year1. It is a responsive website for a fictional Community Science Museum that is designed to inspire curiosity and laerning. The main demographis is kids, families and school groups.
+This is the Semester Project for FEU-year1. It is a responsive website for a fictional Community Science Museum designed to inspire curiosity and learning. The main demographis is kids, families, and school groups.
 
 ## Built with:
 - HTML

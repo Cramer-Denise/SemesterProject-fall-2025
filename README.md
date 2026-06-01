@@ -10,6 +10,14 @@ This is the Semester Project for FEU-year1. It is a responsive website for a fic
 - Figma
 - GitHub
 
+## Features:
+- Responsive design
+- Multi-page website
+- Accessible navigation
+- Family-focused content
+- Exhibition information
+- Visitor information
+
 ## Live demo:
 
 [Community Science Museum](https://cramer-denise.github.io/SemesterProject-fall-2025/)
@@ -18,3 +26,5 @@ This is the Semester Project for FEU-year1. It is a responsive website for a fic
 
 [GitHub](https://github.com/Cramer-Denise/SemesterProject-fall-2025)
 
+## Author:
+Denise Cramer

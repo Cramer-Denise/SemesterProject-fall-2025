@@ -1,2 +1,20 @@
-# SemesterProject-fall-2025
-This is the Semester Project for FEU-year1. 
+# Community Science Museum
+
+## Description
+
+This is the Semester Project for FEU-year1. It is a responsive website for a fictional Community Science Museum that is designed to inspire curiosity and laerning. The main demographis is kids, families and school groups.
+
+## Built with:
+- HTML
+- CSS
+- Figma
+- GitHub
+
+## Live demo:
+
+[Community Science Museum](https://cramer-denise.github.io/SemesterProject-fall-2025/)
+
+## Repository:
+
+[GitHub](https://github.com/Cramer-Denise/SemesterProject-fall-2025)
+
